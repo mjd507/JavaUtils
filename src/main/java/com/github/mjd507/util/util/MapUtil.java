@@ -18,4 +18,9 @@ public class MapUtil extends HashMap<String, Object> {
         return new MapUtil();
     }
 
+    public HashMap<String, String> buildStrMap() {
+        HashMap<String, String> map = new HashMap<>(this.size());
+        this.forEach((k, v) -> map.put(k, String.valueOf(v)));
+        return map;
+    }
 }

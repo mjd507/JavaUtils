@@ -82,6 +82,9 @@ public class HttpUtils {
             ResponseBody body = response.body();
             T t = null;
             if (body != null) {
+                if (clazz == String.class) {
+                    return (T) body.string();
+                }
                 t = JsonUtil.toObj(body.string(), clazz);
             }
             return t;
